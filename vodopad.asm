@@ -17,5 +17,8 @@ main:
     inc al ; обновление цвета
     jmp .loop    
 
+    cli
+    hlt
+
 times 510-($-$$) db 0
 dw 0xaa55

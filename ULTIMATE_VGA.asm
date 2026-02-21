@@ -18,10 +18,10 @@ main:
     xor bx, bx           
 .loop:
     mov byte [ds:bx], al ; рисуем!
-    inc bx
-    inc al
-    cmp bx, 64000
-    jb .loop
+    inc bx ; новая позиция
+    inc al ; новый цвет
+    cmp bx, 64000 ; если вышли за VRAM выходим
+    jb .loop 
 
 times 510-($-$$) db 0
 dw 0xaa55
