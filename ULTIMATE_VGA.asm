@@ -17,7 +17,7 @@ main:
     ; вот так
 
 .loop:
-    mov al, 0x0C ; цвет(зеленый)
+    mov al, 0x0C ; цвет(красный)
     mov byte [ds:bx], al ; рисуем почти без биоса!
     inc bx ; позиция + 1
     loop .loop ; вечный цикл
