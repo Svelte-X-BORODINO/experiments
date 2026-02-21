@@ -15,12 +15,13 @@ main:
     ; то есть ds(0xA000) * 16 = 0xA0000
     ; и 0xA0000 + bx(0) = 0xA0000
     ; вот так
-
+    xor bx, bx           
 .loop:
-    mov al, 0x0C ; цвет(красный)
-    mov byte [ds:bx], al ; рисуем почти без биоса!
-    inc bx ; позиция + 1
-    loop .loop ; вечный цикл
+    mov byte [ds:bx], al ; рисуем!
+    inc bx
+    inc al
+    cmp bx, 64000
+    jb .loop
 
 times 510-($-$$) db 0
 dw 0xaa55
